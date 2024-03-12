@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy4r8h8hns1an"]
+
+[ext_resource type="Texture2D" uid="uid://f72044f2qi6g" path="res://levels/default_level/Background.png" id="1_flnxa"]
+[ext_resource type="PackedScene" uid="uid://drlb4tk2x68au" path="res://obstacles/Block/block.tscn" id="3_n3mo4"]
+[ext_resource type="PackedScene" uid="uid://dilvk3kyo2hwx" path="res://obstacles/Borders/borders.tscn" id="3_r2q7q"]
+[ext_resource type="PackedScene" uid="uid://cgwwf31ejs4c0" path="res://characters/Bomberman/bomberman.tscn" id="4_h24n0"]
+
+[node name="Node2D" type="Sprite2D"]
+position = Vector2(320, 180)
+texture = ExtResource("1_flnxa")
+
+[node name="Block" parent="." instance=ExtResource("3_n3mo4")]
+position = Vector2(-160, -84)
+
+[node name="Block2" parent="." instance=ExtResource("3_n3mo4")]
+position = Vector2(-7, 69)
+
+[node name="Block3" parent="." instance=ExtResource("3_n3mo4")]
+position = Vector2(48, -99)
+
+[node name="Borders" parent="." instance=ExtResource("3_r2q7q")]
+
+[node name="Bomberman" parent="." instance=ExtResource("4_h24n0")]

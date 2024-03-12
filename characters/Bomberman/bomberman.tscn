@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgwwf31ejs4c0"]
+
+[ext_resource type="Script" path="res://characters/Bomberman/bomberman.gd" id="1_hut4h"]
+[ext_resource type="Texture2D" uid="uid://dpb8n22oaj5cx" path="res://characters/Bomberman/bomberman.png" id="1_tbogf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e4iei"]
+radius = 23.0
+
+[node name="Bomberman" type="CharacterBody2D"]
+script = ExtResource("1_hut4h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tbogf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_e4iei")
