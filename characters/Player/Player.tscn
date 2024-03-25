@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmn4o8m8j7yck"]
 
-[ext_resource type="Texture2D" uid="uid://bjovrpqmcq4bk" path="res://characters/Player/Player.png" id="1_hnik5"]
 [ext_resource type="Script" path="res://characters/Player/Player.gd" id="1_ib2pd"]
+[ext_resource type="Texture2D" uid="uid://c6cw53lcmofww" path="res://sprites/characters/golem/golem_idle.png" id="2_hpml2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3hjr"]
 radius = 7.0
@@ -15,7 +15,7 @@ shape = SubResource("CapsuleShape2D_t3hjr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.695, 0)
-texture = ExtResource("1_hnik5")
+texture = ExtResource("2_hpml2")
 
 [node name="ShootingTimer" type="Timer" parent="."]
 wait_time = 0.2
