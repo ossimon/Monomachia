@@ -2,10 +2,12 @@ extends Sprite2D
 
 var bullet_scene: PackedScene = preload("res://Projectiles/Bullet/bullet.tscn")
 
+signal player_bullet
 
-func _on_player_bullet(position):
-	var bullet = bullet_scene.instance()
-	
+func _on_player_bullet(bullet_position, direction):
+	var bullet = bullet_scene.instantiate()
+	bullet.position = bullet_position
+	bullet.rotation = direction.angle()
 	add_child(bullet)
 
 

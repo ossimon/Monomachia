@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+# signals
+signal bullet(pos, dir)
+
+
 # the player's movement speed
 var movement_speed = 200
 var facing_direction = Vector2.RIGHT
@@ -15,18 +19,10 @@ var can_shoot: bool = true
 func _ready():
 	health = max_health
 
-# take damage
-func _on_player_damage(amount):
-	health -= amount
-	print("Player took", amount, "damage. Health:", health)
-	if health <= 0:
-		# player died
-		print("Player died")
-		queue_free()
 
 func move():
 	velocity = Vector2.ZERO
-	# move the player
+
 	if Input.is_action_pressed("Move right"):
 		velocity.x += 1
 		facing_direction = Vector2.RIGHT
@@ -43,19 +39,26 @@ func move():
 	velocity = velocity.normalized() * movement_speed
 	move_and_slide()
 
+
+
 func shoot():
-	if Input.is_action_just_pressed("Shoot") and can_shoot:
-		# # create a bullet
-		# var bullet = Bullet.instance()
-		# # set the bullet's position
-		# bullet.global_position = global_position
-		# # set the bullet's direction
-		# bullet.direction = facing_direction
-		# # add the bullet to the scene
-		# get_parent().add_child(bullet)
-		# disable shooting for a short time
+	# if Input.is_action_just_pressed("Shoot") and can_shoot:
+	if Input.is_action_pressed("Shoot") and can_shoot:
+		var bullet_position = position + facing_direction * 20
+		var bullet_direction = facing_direction
+		bullet.emit(bullet_position, bullet_direction)
+
 		can_shoot = false
-		print("Player shot")
+		$ShootingTimer.start()
+
+
+func hit(damage):
+	health -= damage
+	if health <= 0:
+		# player died
+		print("Player died")
+		queue_free()
+
 
 # let the player move freely with WASD keys
 func _process(_delta):
@@ -65,3 +68,7 @@ func _process(_delta):
 
 func _on_shooting_cooldown():
 	can_shoot = true
+
+
+func _on_node_2d_player_bullet():
+	pass # Replace with function body.

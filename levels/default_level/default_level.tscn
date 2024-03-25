@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cmn4o8m8j7yck" path="res://characters/Player/Player.tscn" id="4_0twtm"]
 [ext_resource type="PackedScene" uid="uid://dna20g7txfcmv" path="res://obstacles/Labirynth/labirynth.tscn" id="5_ilgry"]
 
-[node name="Node2D" type="Sprite2D"]
+[node name="Level" type="Sprite2D"]
 position = Vector2(320, 180)
 script = ExtResource("1_13etq")
 
@@ -29,3 +29,8 @@ position = Vector2(48, -99)
 
 [node name="Player" parent="." instance=ExtResource("4_0twtm")]
 position = Vector2(-27, -3)
+
+[node name="Player2" parent="." instance=ExtResource("4_0twtm")]
+
+[connection signal="player_bullet" from="." to="Player" method="_on_node_2d_player_bullet"]
+[connection signal="bullet" from="Player" to="." method="_on_player_bullet"]
