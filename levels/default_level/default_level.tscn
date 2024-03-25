@@ -1,13 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy4r8h8hns1an"]
+[gd_scene load_steps=7 format=3 uid="uid://dy4r8h8hns1an"]
 
+[ext_resource type="Script" path="res://levels/default_level/default_level.gd" id="1_13etq"]
 [ext_resource type="Texture2D" uid="uid://f72044f2qi6g" path="res://levels/default_level/Background.png" id="1_flnxa"]
 [ext_resource type="PackedScene" uid="uid://drlb4tk2x68au" path="res://obstacles/Block/block.tscn" id="3_n3mo4"]
 [ext_resource type="PackedScene" uid="uid://dilvk3kyo2hwx" path="res://obstacles/Borders/borders.tscn" id="3_r2q7q"]
-[ext_resource type="PackedScene" uid="uid://cgwwf31ejs4c0" path="res://characters/Bomberman/bomberman.tscn" id="4_h24n0"]
+[ext_resource type="PackedScene" uid="uid://cmn4o8m8j7yck" path="res://characters/Player/Player.tscn" id="4_0twtm"]
+[ext_resource type="PackedScene" uid="uid://dna20g7txfcmv" path="res://obstacles/Labirynth/labirynth.tscn" id="5_ilgry"]
 
 [node name="Node2D" type="Sprite2D"]
 position = Vector2(320, 180)
+script = ExtResource("1_13etq")
+
+[node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_flnxa")
+
+[node name="Labirynth" parent="." instance=ExtResource("5_ilgry")]
 
 [node name="Block" parent="." instance=ExtResource("3_n3mo4")]
 position = Vector2(-160, -84)
@@ -20,4 +27,5 @@ position = Vector2(48, -99)
 
 [node name="Borders" parent="." instance=ExtResource("3_r2q7q")]
 
-[node name="Bomberman" parent="." instance=ExtResource("4_h24n0")]
+[node name="Player" parent="." instance=ExtResource("4_0twtm")]
+position = Vector2(-27, -3)

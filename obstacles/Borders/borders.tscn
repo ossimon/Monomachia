@@ -5,17 +5,17 @@
 [node name="Borders" type="Node2D"]
 
 [node name="Border" parent="." instance=ExtResource("1_2ebt8")]
-position = Vector2(-320, -180)
+position = Vector2(-200, -180)
 
 [node name="Border2" parent="." instance=ExtResource("1_2ebt8")]
-position = Vector2(340, -180)
+position = Vector2(220, -180)
 
 [node name="Border3" parent="." instance=ExtResource("1_2ebt8")]
-position = Vector2(340, 200)
+position = Vector2(340, 170)
 rotation = 1.5708
 scale = Vector2(1, 2)
 
 [node name="Border4" parent="." instance=ExtResource("1_2ebt8")]
-position = Vector2(340, -180)
+position = Vector2(340, -150)
 rotation = 1.5708
 scale = Vector2(1, 2)

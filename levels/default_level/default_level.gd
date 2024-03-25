@@ -1,0 +1,19 @@
+extends Sprite2D
+
+var bullet_scene: PackedScene = preload("res://Projectiles/Bullet/bullet.tscn")
+
+
+func _on_player_bullet(position):
+	var bullet = bullet_scene.instance()
+	
+	add_child(bullet)
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass

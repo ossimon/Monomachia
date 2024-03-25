@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://jku8omxdqkdu"]
+
+[ext_resource type="Script" path="res://obstacles/Projectiles/Bullet/bullet.gd" id="1_ivduq"]
+[ext_resource type="Texture2D" uid="uid://d2xxu066hcwj7" path="res://obstacles/Projectiles/Bullet/Bullet.png" id="2_vxcp3"]
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_ivduq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vxcp3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-10, -6, -10, 6, 10, 2, 10, -2)
+
+[node name="Timer" type="Timer" parent="."]
