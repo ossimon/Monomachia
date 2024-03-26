@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://jku8omxdqkdu"]
 
-[ext_resource type="Script" path="res://scenes/Projectiles/Bullet/bullet.gd" id="1_ivduq"]
-[ext_resource type="Texture2D" uid="uid://d2xxu066hcwj7" path="res://scenes/Projectiles/Bullet/Bullet.png" id="2_0euya"]
+[ext_resource type="Script" path="res://scenes/Projectiles/Bullet/bullet.gd" id="1_61vev"]
+[ext_resource type="Texture2D" uid="uid://d2xxu066hcwj7" path="res://scenes/Projectiles/Bullet/Bullet.png" id="2_t2duw"]
 
 [node name="Bullet" type="Area2D"]
-script = ExtResource("1_ivduq")
+script = ExtResource("1_61vev")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_0euya")
+texture = ExtResource("2_t2duw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 scale = Vector2(0.5, 0.5)

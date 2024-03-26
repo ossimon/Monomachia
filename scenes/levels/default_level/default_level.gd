@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var bullet_scene: PackedScene = preload("res://Projectiles/Bullet/bullet.tscn")
+var bullet_scene: PackedScene = preload("res://scenes/Projectiles/Bullet/bullet.tscn")
 
 signal player_bullet
 
