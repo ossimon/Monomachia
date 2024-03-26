@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0koj3ofhpwt1"
-path="res://.godot/imported/block32x32.png-aaba1d266aa4efd872696c466cceb36c.ctex"
+uid="uid://bjovrpqmcq4bk"
+path="res://.godot/imported/Player.png-8840d5eb9f9913db8c0b46e1116f09a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://obstacles/Block/block32x32.png"
-dest_files=["res://.godot/imported/block32x32.png-aaba1d266aa4efd872696c466cceb36c.ctex"]
+source_file="res://scenes/characters/Player/Player.png"
+dest_files=["res://.godot/imported/Player.png-8840d5eb9f9913db8c0b46e1116f09a3.ctex"]
 
 [params]
 

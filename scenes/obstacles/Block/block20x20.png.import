@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://q2f1nc54nceq"
-path="res://.godot/imported/block20x20.png-badf114a8953b1eb4c4704717a7b900e.ctex"
+path="res://.godot/imported/block20x20.png-46869986b948ff2ad046ca088c0162e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://obstacles/Block/block20x20.png"
-dest_files=["res://.godot/imported/block20x20.png-badf114a8953b1eb4c4704717a7b900e.ctex"]
+source_file="res://scenes/obstacles/Block/block20x20.png"
+dest_files=["res://.godot/imported/block20x20.png-46869986b948ff2ad046ca088c0162e2.ctex"]
 
 [params]
 

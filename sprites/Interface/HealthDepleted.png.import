@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6pruxyrwyxdo"
-path="res://.godot/imported/Labirynth.png-07cf964b5315db057904d9b0bde4222c.ctex"
+uid="uid://bn3u3q6kxhx3l"
+path="res://.godot/imported/HealthDepleted.png-e2822efe40a596e6a579d660f0d80740.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://obstacles/Labirynth/Labirynth.png"
-dest_files=["res://.godot/imported/Labirynth.png-07cf964b5315db057904d9b0bde4222c.ctex"]
+source_file="res://sprites/Interface/HealthDepleted.png"
+dest_files=["res://.godot/imported/HealthDepleted.png-e2822efe40a596e6a579d660f0d80740.ctex"]
 
 [params]
 

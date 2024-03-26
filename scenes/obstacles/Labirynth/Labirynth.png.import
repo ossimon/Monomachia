@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2xxu066hcwj7"
-path="res://.godot/imported/Bullet.png-21040003de99267e57be2b42ab04d3cc.ctex"
+uid="uid://6pruxyrwyxdo"
+path="res://.godot/imported/Labirynth.png-0074537e80c918cc1ea2ccd853621613.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Projectiles/Bullet/Bullet.png"
-dest_files=["res://.godot/imported/Bullet.png-21040003de99267e57be2b42ab04d3cc.ctex"]
+source_file="res://scenes/obstacles/Labirynth/Labirynth.png"
+dest_files=["res://.godot/imported/Labirynth.png-0074537e80c918cc1ea2ccd853621613.ctex"]
 
 [params]
 

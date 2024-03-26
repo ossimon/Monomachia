@@ -18,6 +18,8 @@ var can_shoot: bool = true
 
 func _ready():
 	health = max_health
+	$HealthBar.max_value = max_health
+	$HealthBar.value = max_health
 
 
 func move():
@@ -58,6 +60,8 @@ func hit(damage):
 		# player died
 		print("Player died")
 		queue_free()
+	
+	$HealthBar.value -= damage
 
 
 # let the player move freely with WASD keys

@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://dy4r8h8hns1an"]
 
-[ext_resource type="Script" path="res://levels/default_level/default_level.gd" id="1_13etq"]
-[ext_resource type="Texture2D" uid="uid://f72044f2qi6g" path="res://levels/default_level/Background.png" id="1_flnxa"]
-[ext_resource type="PackedScene" uid="uid://drlb4tk2x68au" path="res://obstacles/Block/block.tscn" id="3_n3mo4"]
-[ext_resource type="PackedScene" uid="uid://dilvk3kyo2hwx" path="res://obstacles/Borders/borders.tscn" id="3_r2q7q"]
-[ext_resource type="PackedScene" uid="uid://cmn4o8m8j7yck" path="res://characters/Player/Player.tscn" id="4_0twtm"]
-[ext_resource type="PackedScene" uid="uid://dna20g7txfcmv" path="res://obstacles/Labirynth/labirynth.tscn" id="5_ilgry"]
+[ext_resource type="Script" path="res://scenes/levels/default_level/default_level.gd" id="1_13etq"]
+[ext_resource type="Texture2D" uid="uid://f72044f2qi6g" path="res://scenes/levels/default_level/Background.png" id="1_flnxa"]
+[ext_resource type="PackedScene" uid="uid://drlb4tk2x68au" path="res://scenes/obstacles/Block/block.tscn" id="3_n3mo4"]
+[ext_resource type="PackedScene" uid="uid://dilvk3kyo2hwx" path="res://scenes/obstacles/Borders/borders.tscn" id="3_r2q7q"]
+[ext_resource type="PackedScene" uid="uid://cmn4o8m8j7yck" path="res://scenes/characters/Player/Player.tscn" id="4_0twtm"]
+[ext_resource type="PackedScene" uid="uid://dna20g7txfcmv" path="res://scenes/obstacles/Labirynth/labirynth.tscn" id="5_ilgry"]
 
 [node name="Level" type="Sprite2D"]
 position = Vector2(320, 180)
@@ -23,7 +23,10 @@ position = Vector2(-160, -84)
 position = Vector2(-7, 69)
 
 [node name="Block3" parent="." instance=ExtResource("3_n3mo4")]
-position = Vector2(48, -99)
+position = Vector2(48, -100)
+
+[node name="Block4" parent="." instance=ExtResource("3_n3mo4")]
+position = Vector2(48, -60)
 
 [node name="Borders" parent="." instance=ExtResource("3_r2q7q")]
 

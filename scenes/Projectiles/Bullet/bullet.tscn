@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://jku8omxdqkdu"]
 
-[ext_resource type="Script" path="res://Projectiles/Bullet/bullet.gd" id="1_ivduq"]
-[ext_resource type="Texture2D" uid="uid://d2xxu066hcwj7" path="res://Projectiles/Bullet/Bullet.png" id="2_0euya"]
+[ext_resource type="Script" path="res://scenes/Projectiles/Bullet/bullet.gd" id="1_ivduq"]
+[ext_resource type="Texture2D" uid="uid://d2xxu066hcwj7" path="res://scenes/Projectiles/Bullet/Bullet.png" id="2_0euya"]
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_ivduq")

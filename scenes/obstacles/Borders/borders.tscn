@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dilvk3kyo2hwx"]
 
-[ext_resource type="PackedScene" uid="uid://d2ffigq2vcxbk" path="res://obstacles/Border/border.tscn" id="1_2ebt8"]
+[ext_resource type="PackedScene" uid="uid://d2ffigq2vcxbk" path="res://scenes/obstacles/Border/border.tscn" id="1_2ebt8"]
 
 [node name="Borders" type="Node2D"]
 
