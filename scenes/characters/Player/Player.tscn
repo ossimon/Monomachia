@@ -30,4 +30,8 @@ value = 100.0
 texture_under = ExtResource("3_rvlym")
 texture_progress = ExtResource("4_o0lre")
 
+[node name="AbilityTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="timeout" from="ShootingTimer" to="." method="_on_shooting_cooldown"]
+[connection signal="timeout" from="AbilityTimer" to="." method="_on_ability_timer_timeout"]

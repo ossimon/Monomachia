@@ -36,4 +36,5 @@ position = Vector2(-27, -3)
 [node name="Player2" parent="." instance=ExtResource("4_0twtm")]
 
 [connection signal="player_bullet" from="." to="Player" method="_on_node_2d_player_bullet"]
+[connection signal="ability" from="Player" to="." method="_on_player_ability"]
 [connection signal="bullet" from="Player" to="." method="_on_player_bullet"]

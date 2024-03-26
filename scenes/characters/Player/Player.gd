@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # signals
 signal bullet(pos, dir)
-
+signal ability(pos, dir)
 
 # the player's movement speed
 var movement_speed = 200
@@ -14,6 +14,7 @@ var health = max_health
 
 # abilities
 var can_shoot: bool = true
+var can_ability: bool = true
 
 
 func _ready():
@@ -62,17 +63,31 @@ func hit(damage):
 		queue_free()
 	
 	$HealthBar.value -= damage
+	
+
+func shatter():
+	pass
 
 
-# let the player move freely with WASD keys
+func use_abilities():
+	if Input.is_action_pressed("Ability") and can_ability:
+		var ability_position = position + facing_direction * 15
+		var ability_direction = facing_direction
+		ability.emit(ability_position, ability_direction)
+
+		can_ability = false
+		$AbilityTimer.start()
+	
+
 func _process(_delta):
 	move()
 	shoot()
+	use_abilities()
 
 
 func _on_shooting_cooldown():
 	can_shoot = true
 
 
-func _on_node_2d_player_bullet():
-	pass # Replace with function body.
+func _on_ability_timer_timeout():
+	can_ability = true
