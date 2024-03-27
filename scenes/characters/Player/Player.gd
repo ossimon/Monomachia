@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var player_instance: int = 1
+
 # signals
 signal bullet(pos, dir)
 signal ability(pos, dir)
@@ -25,17 +27,16 @@ func _ready():
 
 func move():
 	velocity = Vector2.ZERO
-
-	if Input.is_action_pressed("Move right"):
+	if Input.is_action_pressed("p%d_move_right" % player_instance):
 		velocity.x += 1
 		facing_direction = Vector2.RIGHT
-	if Input.is_action_pressed("Move left"):
+	if Input.is_action_pressed("p%d_move_left" % player_instance):
 		velocity.x += -1
 		facing_direction = Vector2.LEFT
-	if Input.is_action_pressed("Move down"):
+	if Input.is_action_pressed("p%d_move_down" % player_instance):
 		velocity.y += 1
 		facing_direction = Vector2.DOWN
-	if Input.is_action_pressed("Move up"):
+	if Input.is_action_pressed("p%d_move_up" % player_instance):
 		velocity.y += -1
 		facing_direction = Vector2.UP
 
@@ -46,7 +47,7 @@ func move():
 
 func shoot():
 	# if Input.is_action_just_pressed("Shoot") and can_shoot:
-	if Input.is_action_pressed("Shoot") and can_shoot:
+	if Input.is_action_pressed("p%d_shoot" % player_instance) and can_shoot:
 		var bullet_position = position + facing_direction * 20
 		var bullet_direction = facing_direction
 		bullet.emit(bullet_position, bullet_direction)
@@ -70,7 +71,7 @@ func shatter():
 
 
 func use_abilities():
-	if Input.is_action_pressed("Ability") and can_ability:
+	if Input.is_action_pressed("p%d_ability" % player_instance) and can_ability:
 		var ability_position = position + facing_direction * 15
 		var ability_direction = facing_direction
 		ability.emit(ability_position, ability_direction)

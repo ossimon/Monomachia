@@ -12,4 +12,5 @@ func _on_animation_timer_timeout():
 
 
 func _on_body_entered(body):
-	body.shatter()
+	if "shatter" in body:
+		body.shatter()
