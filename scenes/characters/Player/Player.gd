@@ -5,6 +5,8 @@ extends CharacterBody2D
 # signals
 signal bullet(pos, dir)
 signal ability(pos, dir)
+signal build_wall(pos, dir)
+
 
 # the player's movement speed
 var movement_speed = 200
@@ -17,6 +19,7 @@ var health = max_health
 # abilities
 var can_shoot: bool = true
 var can_ability: bool = true
+var can_build_wall: bool = true
 
 
 func _ready():
@@ -79,11 +82,21 @@ func use_abilities():
 		can_ability = false
 		$AbilityTimer.start()
 	
-
+func build_walls():
+	if Input.is_action_pressed("p%d_build_wall" % player_instance) and can_build_wall:
+		var wall_position = position + facing_direction * 15
+		var wall_direction = facing_direction;
+		build_wall.emit(wall_position, wall_direction)
+		
+		can_build_wall = false
+		$WallTimer.start()
+	
+	
 func _process(_delta):
 	move()
 	shoot()
 	use_abilities()
+	build_walls()
 
 
 func _on_shooting_cooldown():
@@ -92,3 +105,6 @@ func _on_shooting_cooldown():
 
 func _on_ability_timer_timeout():
 	can_ability = true
+	
+func _on_wall_timer_timeout():
+	can_build_wall = true

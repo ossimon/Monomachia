@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cmn4o8m8j7yck"]
 
 [ext_resource type="Script" path="res://scenes/characters/Player/Player.gd" id="1_ib2pd"]
-[ext_resource type="Texture2D" uid="uid://c6cw53lcmofww" path="res://sprites/characters/golem/golem_idle.png" id="2_fvqlx"]
+[ext_resource type="Texture2D" uid="uid://bsf85boetxiqy" path="res://sprites/characters/golem/golem_idle_res.png" id="2_fmumf"]
 [ext_resource type="Texture2D" uid="uid://bn3u3q6kxhx3l" path="res://sprites/Interface/HealthDepleted.png" id="3_rvlym"]
 [ext_resource type="Texture2D" uid="uid://l0os50lp8fq4" path="res://sprites/Interface/HealthFull.png" id="4_o0lre"]
 
@@ -17,7 +17,8 @@ shape = SubResource("CapsuleShape2D_t3hjr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -3)
-texture = ExtResource("2_fvqlx")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_fmumf")
 
 [node name="ShootingTimer" type="Timer" parent="."]
 wait_time = 0.2
@@ -33,5 +34,8 @@ texture_progress = ExtResource("4_o0lre")
 [node name="AbilityTimer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="WallTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="ShootingTimer" to="." method="_on_shooting_cooldown"]
 [connection signal="timeout" from="AbilityTimer" to="." method="_on_ability_timer_timeout"]
+[connection signal="timeout" from="WallTimer" to="." method="_on_wall_timer_timeout"]

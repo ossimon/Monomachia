@@ -10,6 +10,8 @@
 [node name="Level" type="Sprite2D"]
 position = Vector2(320, 180)
 script = ExtResource("1_13etq")
+metadata/_edit_horizontal_guides_ = [30.0, 330.0]
+metadata/_edit_vertical_guides_ = [120.0, 520.0]
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_flnxa")
@@ -72,6 +74,8 @@ player_instance = 2
 
 [connection signal="player_bullet" from="." to="Player" method="_on_node_2d_player_bullet"]
 [connection signal="ability" from="Player" to="." method="_on_player_ability"]
+[connection signal="build_wall" from="Player" to="." method="_on_player_build_wall"]
 [connection signal="bullet" from="Player" to="." method="_on_player_bullet"]
 [connection signal="ability" from="Player2" to="." method="_on_player_2_ability"]
+[connection signal="build_wall" from="Player2" to="." method="_on_player_2_build_wall"]
 [connection signal="bullet" from="Player2" to="." method="_on_player_2_bullet"]

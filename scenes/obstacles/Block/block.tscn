@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://drlb4tk2x68au"]
 
 [ext_resource type="Script" path="res://scenes/obstacles/Block/block.gd" id="1_i8lpn"]
-[ext_resource type="Texture2D" uid="uid://bgojk6k20qe0t" path="res://sprites/walls/normal_brick.png" id="1_mprg2"]
+[ext_resource type="Texture2D" uid="uid://de0tqcbqfvfmu" path="res://sprites/walls/normal_brick_res.png" id="2_wxait"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg8v3"]
 
@@ -12,4 +12,5 @@ script = ExtResource("1_i8lpn")
 shape = SubResource("RectangleShape2D_lg8v3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_mprg2")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_wxait")

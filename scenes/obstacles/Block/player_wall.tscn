@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://n4868lohxhia"]
+
+[ext_resource type="Script" path="res://scenes/obstacles/Block/player_wall.gd" id="1_lt4p5"]
+[ext_resource type="Texture2D" uid="uid://cly4a6lx0yckp" path="res://sprites/walls/golem_wal_res.png" id="1_y6hnt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ph8qa"]
+
+[node name="PlayerWall" type="StaticBody2D"]
+script = ExtResource("1_lt4p5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ph8qa")
+
+[node name="GolemWall" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_y6hnt")
