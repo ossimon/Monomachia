@@ -68,16 +68,22 @@ func shoot():
 		can_shoot = false
 		$ShootingTimer.start()
 
+		# play shooting sound from GolemSounds scene
+		$GolemSounds.play_shoot()
+
 
 func hit(damage):
 	health -= damage
 	if health <= 0:
 		# player died
 		print("Player died")
-		queue_free()
+		$GolemSounds.play_death()
 	
 	$HealthBar.value -= damage
 	
+func die():
+	queue_free()
+
 
 func shatter():
 	pass
@@ -85,21 +91,24 @@ func shatter():
 
 func use_abilities():
 	if Input.is_action_pressed("p%d_ability" % player_instance) and can_ability:
-		var ability_position = position + facing_direction * 15
-		var ability_direction = facing_direction
+		var ability_direction = $Scope.get_aim_vec()
+		var ability_position = position + ability_direction * 15
 		ability.emit(ability_position, ability_direction)
 
 		can_ability = false
 		$AbilityTimer.start()
+		
+		$GolemSounds.play_attack()
 	
 func build_walls():
 	if Input.is_action_pressed("p%d_build_wall" % player_instance) and can_build_wall:
-		var wall_position = position + facing_direction * 15
-		var wall_direction = facing_direction;
+		var wall_direction = $Scope.get_aim_vec()
+		var wall_position = position + wall_direction * 15
 		build_wall.emit(wall_position, wall_direction)
 		
 		can_build_wall = false
 		$WallTimer.start()
+		$GolemSounds.play_place()
 	
 	
 func _process(_delta):

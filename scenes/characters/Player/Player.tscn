@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmn4o8m8j7yck"]
+[gd_scene load_steps=9 format=3 uid="uid://cmn4o8m8j7yck"]
 
 [ext_resource type="Script" path="res://scenes/characters/Player/Player.gd" id="1_ib2pd"]
 [ext_resource type="Texture2D" uid="uid://bsf85boetxiqy" path="res://sprites/characters/golem/golem_idle_res.png" id="2_fmumf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://l0os50lp8fq4" path="res://sprites/Interface/HealthFull.png" id="4_o0lre"]
 [ext_resource type="PackedScene" uid="uid://d0r6h3qh3ync8" path="res://scenes/characters/Scope/scope.tscn" id="5_3fl8l"]
 [ext_resource type="Script" path="res://scenes/characters/Scope/scope.gd" id="6_mu57u"]
+[ext_resource type="PackedScene" uid="uid://dvlgtdh06mq5f" path="res://scenes/characters/GolemSounds/golem_sounds.tscn" id="7_dnjni"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3hjr"]
 radius = 7.0
@@ -40,6 +41,8 @@ wait_time = 0.5
 
 [node name="Scope" parent="." instance=ExtResource("5_3fl8l")]
 script = ExtResource("6_mu57u")
+
+[node name="GolemSounds" parent="." instance=ExtResource("7_dnjni")]
 
 [connection signal="timeout" from="ShootingTimer" to="." method="_on_shooting_cooldown"]
 [connection signal="timeout" from="AbilityTimer" to="." method="_on_ability_timer_timeout"]
