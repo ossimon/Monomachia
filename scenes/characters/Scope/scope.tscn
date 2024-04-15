@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0r6h3qh3ync8"]
+
+[ext_resource type="Texture2D" uid="uid://djokcxm3udunk" path="res://sprites/abilities/Scope.png" id="1_htjk3"]
+
+[node name="Scope" type="Marker2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_htjk3")

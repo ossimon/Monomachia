@@ -21,11 +21,23 @@ var can_shoot: bool = true
 var can_ability: bool = true
 var can_build_wall: bool = true
 
-
 func _ready():
 	health = max_health
 	$HealthBar.max_value = max_health
 	$HealthBar.value = max_health
+
+func scope():
+	var aim_vector: Vector2 = Vector2.ZERO
+	if player_instance == 1:
+		aim_vector = get_global_mouse_position() - global_position
+	else:
+		# get right stick position
+		aim_vector = Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y))
+		if abs(aim_vector.x) < 0.5 and abs(aim_vector.y) < 0.5:
+			return
+
+	aim_vector = aim_vector.normalized()
+	$Scope.aim(aim_vector)
 
 
 func move():
@@ -47,12 +59,10 @@ func move():
 	move_and_slide()
 
 
-
 func shoot():
-	# if Input.is_action_just_pressed("Shoot") and can_shoot:
 	if Input.is_action_pressed("p%d_shoot" % player_instance) and can_shoot:
-		var bullet_position = position + facing_direction * 20
-		var bullet_direction = facing_direction
+		var bullet_direction = $Scope.get_aim_vec()
+		var bullet_position = position + bullet_direction * 20
 		bullet.emit(bullet_position, bullet_direction)
 
 		can_shoot = false
@@ -93,6 +103,7 @@ func build_walls():
 	
 	
 func _process(_delta):
+	scope()
 	move()
 	shoot()
 	use_abilities()
