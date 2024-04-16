@@ -20,6 +20,7 @@ var health = max_health
 var can_shoot: bool = true
 var can_ability: bool = true
 var can_build_wall: bool = true
+var can_heal: bool = true
 
 func _ready():
 	health = max_health
@@ -85,11 +86,7 @@ func die():
 	queue_free()
 
 
-func shatter():
-	pass
-
-
-func use_abilities():
+func use_shatter():
 	if Input.is_action_pressed("p%d_ability" % player_instance) and can_ability:
 		var ability_direction = $Scope.get_aim_vec()
 		var ability_position = position + ability_direction * 15
@@ -99,6 +96,21 @@ func use_abilities():
 		$AbilityTimer.start()
 		
 		$GolemSounds.play_attack()
+
+
+func use_heal():
+	if Input.is_action_pressed("p%d_heal" % player_instance) and can_heal:
+		health = max_health
+		$HealthBar.value = max_health
+		can_heal = false
+		$HealingTimer.start()
+		$GolemSounds.play_heal()
+
+
+func use_abilities():
+	use_shatter()
+	use_heal()
+	
 	
 func build_walls():
 	if Input.is_action_pressed("p%d_build_wall" % player_instance) and can_build_wall:
@@ -128,3 +140,7 @@ func _on_ability_timer_timeout():
 	
 func _on_wall_timer_timeout():
 	can_build_wall = true
+
+
+func _on_healing_timer_timeout():
+	can_heal = true

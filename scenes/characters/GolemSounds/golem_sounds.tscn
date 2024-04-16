@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvlgtdh06mq5f"]
+[gd_scene load_steps=7 format=3 uid="uid://dvlgtdh06mq5f"]
 
 [ext_resource type="Script" path="res://scenes/characters/GolemSounds/golem_sounds.gd" id="1_k2m87"]
 [ext_resource type="AudioStream" uid="uid://dun24numcysu8" path="res://sound_effects/Golem/attack/attack.wav" id="1_qax6p"]
 [ext_resource type="AudioStream" uid="uid://c1mgkhp8cju3l" path="res://sound_effects/Golem/death/death_sound.wav" id="3_qkqpq"]
 [ext_resource type="AudioStream" uid="uid://nwm8fwc1hpkx" path="res://sound_effects/Golem/shoot/shoot.wav" id="4_jfevg"]
 [ext_resource type="AudioStream" uid="uid://b8ortx37wo2r" path="res://sound_effects/Golem/place/place.wav" id="5_0oako"]
+[ext_resource type="AudioStream" uid="uid://bo242pmjqrt02" path="res://sound_effects/Golem/heal/heal.wav" id="6_87al8"]
 
 [node name="GolemSounds" type="Node2D"]
 script = ExtResource("1_k2m87")
@@ -17,8 +18,13 @@ stream = ExtResource("3_qkqpq")
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_jfevg")
+volume_db = -9.0
 
 [node name="PlaceSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_0oako")
+
+[node name="HealSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_87al8")
+volume_db = 6.0
 
 [connection signal="finished" from="DeathSound" to="." method="_on_death_sound_finished"]

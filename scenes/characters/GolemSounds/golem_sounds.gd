@@ -13,6 +13,9 @@ func play_shoot():
 
 func play_place():
 	$PlaceSound.play()
+	
+func play_heal():
+	$HealSound.play()
 
 func _on_death_sound_finished():
 	get_parent().die()
