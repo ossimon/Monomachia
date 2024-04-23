@@ -12,6 +12,9 @@ signal build_wall(pos, dir)
 var movement_speed = 200
 var facing_direction = Vector2.RIGHT
 
+# build distance
+var build_distance = 25
+
 # health
 var max_health = 100
 var health = max_health
@@ -115,14 +118,14 @@ func use_abilities():
 func build_walls():
 	if Input.is_action_pressed("p%d_build_wall" % player_instance) and can_build_wall:
 		var wall_direction = $Scope.get_aim_vec()
-		var wall_position = position + wall_direction * 15
+		var wall_position = position + wall_direction * build_distance
 		build_wall.emit(wall_position, wall_direction)
 		
 		can_build_wall = false
 		$WallTimer.start()
 		$GolemSounds.play_place()
-	
-	
+		
+
 func _process(_delta):
 	scope()
 	move()
