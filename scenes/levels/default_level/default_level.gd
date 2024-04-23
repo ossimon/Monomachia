@@ -32,13 +32,7 @@ func _on_player_2_ability(pos, dir):
 	add_child(ability)
 
 func _on_player_build_wall(pos, dir):
-	var wall = player_wall.instantiate()
-	wall.position = pos
-	wall.rotation = dir.angle()
-	add_child(wall)
+	$Labirynth.add_node_at_position(pos)
 
 func _on_player_2_build_wall(pos, dir):
-	var wall = player_wall.instantiate()
-	wall.position = pos
-	wall.rotation = dir.angle()
-	add_child(wall)
+	$Labirynth.add_node_at_position(pos)
