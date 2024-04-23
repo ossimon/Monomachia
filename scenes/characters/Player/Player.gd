@@ -1,12 +1,7 @@
 extends CharacterBody2D
+class_name Player
 
 @export var player_instance: int = 1
-
-# signals
-signal bullet(pos, dir)
-signal ability(pos, dir)
-signal build_wall(pos, dir)
-
 
 # the player's movement speed
 var movement_speed = 200
@@ -16,11 +11,6 @@ var facing_direction = Vector2.RIGHT
 var max_health = 100
 var health = max_health
 
-# abilities
-var can_shoot: bool = true
-var can_ability: bool = true
-var can_build_wall: bool = true
-var can_heal: bool = true
 
 func _ready():
 	health = max_health
@@ -60,19 +50,6 @@ func move():
 	move_and_slide()
 
 
-func shoot():
-	if Input.is_action_pressed("p%d_shoot" % player_instance) and can_shoot:
-		var bullet_direction = $Scope.get_aim_vec()
-		var bullet_position = position + bullet_direction * 20
-		bullet.emit(bullet_position, bullet_direction)
-
-		can_shoot = false
-		$ShootingTimer.start()
-
-		# play shooting sound from GolemSounds scene
-		$GolemSounds.play_shoot()
-
-
 func hit(damage):
 	health -= damage
 	if health <= 0:
@@ -85,62 +62,30 @@ func hit(damage):
 func die():
 	queue_free()
 
+func use_ability1():
+	pass
+	
+func use_ability2():
+	pass
 
-func use_shatter():
-	if Input.is_action_pressed("p%d_ability" % player_instance) and can_ability:
-		var ability_direction = $Scope.get_aim_vec()
-		var ability_position = position + ability_direction * 15
-		ability.emit(ability_position, ability_direction)
+func use_ability3():
+	pass
 
-		can_ability = false
-		$AbilityTimer.start()
-		
-		$GolemSounds.play_attack()
-
-
-func use_heal():
-	if Input.is_action_pressed("p%d_heal" % player_instance) and can_heal:
-		health = max_health
-		$HealthBar.value = max_health
-		can_heal = false
-		$HealingTimer.start()
-		$GolemSounds.play_heal()
-
+func use_ability4():
+	pass
 
 func use_abilities():
-	use_shatter()
-	use_heal()
-	
-	
-func build_walls():
-	if Input.is_action_pressed("p%d_build_wall" % player_instance) and can_build_wall:
-		var wall_direction = $Scope.get_aim_vec()
-		var wall_position = position + wall_direction * 15
-		build_wall.emit(wall_position, wall_direction)
-		
-		can_build_wall = false
-		$WallTimer.start()
-		$GolemSounds.play_place()
-	
-	
+	if Input.is_action_pressed("p%d_ability1" % player_instance):
+		use_ability1()
+	if Input.is_action_pressed("p%d_ability2" % player_instance):
+		use_ability2()
+	if Input.is_action_pressed("p%d_ability3" % player_instance):
+		use_ability3()
+	if Input.is_action_pressed("p%d_ability4" % player_instance):
+		use_ability4()
+
 func _process(_delta):
 	scope()
 	move()
-	shoot()
 	use_abilities()
-	build_walls()
 
-
-func _on_shooting_cooldown():
-	can_shoot = true
-
-
-func _on_ability_timer_timeout():
-	can_ability = true
-	
-func _on_wall_timer_timeout():
-	can_build_wall = true
-
-
-func _on_healing_timer_timeout():
-	can_heal = true

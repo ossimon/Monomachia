@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmn4o8m8j7yck"]
+[gd_scene load_steps=9 format=3 uid="uid://cmn4o8m8j7yck"]
 
 [ext_resource type="Script" path="res://scenes/characters/Player/Player.gd" id="1_ib2pd"]
+[ext_resource type="Texture2D" uid="uid://bsf85boetxiqy" path="res://sprites/characters/golem/golem_idle_res.png" id="2_fmumf"]
 [ext_resource type="Texture2D" uid="uid://bn3u3q6kxhx3l" path="res://sprites/Interface/HealthDepleted.png" id="3_rvlym"]
 [ext_resource type="Texture2D" uid="uid://l0os50lp8fq4" path="res://sprites/Interface/HealthFull.png" id="4_o0lre"]
 [ext_resource type="PackedScene" uid="uid://d0r6h3qh3ync8" path="res://scenes/characters/Scope/scope.tscn" id="5_3fl8l"]
 [ext_resource type="Script" path="res://scenes/characters/Scope/scope.gd" id="6_mu57u"]
+[ext_resource type="PackedScene" uid="uid://dvlgtdh06mq5f" path="res://scenes/characters/GolemSounds/golem_sounds.tscn" id="7_dnjni"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3hjr"]
 radius = 7.0
@@ -16,6 +18,14 @@ script = ExtResource("1_ib2pd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_t3hjr")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_fmumf")
+
+[node name="ShootingTimer" type="Timer" parent="."]
+wait_time = 0.2
+
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 offset_left = -10.0
 offset_top = -20.0
@@ -24,5 +34,19 @@ value = 100.0
 texture_under = ExtResource("3_rvlym")
 texture_progress = ExtResource("4_o0lre")
 
+[node name="AbilityTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="WallTimer" type="Timer" parent="."]
+
 [node name="Scope" parent="." instance=ExtResource("5_3fl8l")]
 script = ExtResource("6_mu57u")
+
+[node name="GolemSounds" parent="." instance=ExtResource("7_dnjni")]
+
+[node name="HealingTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ShootingTimer" to="." method="_on_shooting_cooldown"]
+[connection signal="timeout" from="AbilityTimer" to="." method="_on_ability_timer_timeout"]
+[connection signal="timeout" from="WallTimer" to="." method="_on_wall_timer_timeout"]
+[connection signal="timeout" from="HealingTimer" to="." method="_on_healing_timer_timeout"]

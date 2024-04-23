@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b534ld2ku5dtd"]
+
+[ext_resource type="PackedScene" uid="uid://cmn4o8m8j7yck" path="res://scenes/characters/Player/Player.tscn" id="1_b28pv"]
+[ext_resource type="Script" path="res://scenes/characters/Golem/golem.gd" id="2_p2lau"]
+[ext_resource type="PackedScene" uid="uid://dvlgtdh06mq5f" path="res://scenes/characters/GolemSounds/golem_sounds.tscn" id="3_jbrk6"]
+[ext_resource type="Texture2D" uid="uid://bsf85boetxiqy" path="res://sprites/characters/golem/golem_idle_res.png" id="4_enq7d"]
+
+[node name="Golem" instance=ExtResource("1_b28pv")]
+script = ExtResource("2_p2lau")
+
+[node name="GolemSounds" parent="." index="3" instance=ExtResource("3_jbrk6")]
+
+[node name="WallTimer" type="Timer" parent="." index="4"]
+
+[node name="AbilityTimer" type="Timer" parent="." index="5"]
+wait_time = 0.5
+
+[node name="ShootingTimer" type="Timer" parent="." index="6"]
+wait_time = 0.2
+
+[node name="HealingTimer" type="Timer" parent="." index="7"]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="8"]
+position = Vector2(0, -3)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_enq7d")
+
+[connection signal="timeout" from="WallTimer" to="." method="_on_wall_timer_timeout"]
+[connection signal="timeout" from="AbilityTimer" to="." method="_on_ability_timer_timeout"]
+[connection signal="timeout" from="ShootingTimer" to="." method="_on_shooting_timer_timeout"]
+[connection signal="timeout" from="HealingTimer" to="." method="_on_healing_timer_timeout"]
