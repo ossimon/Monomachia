@@ -13,7 +13,6 @@ config_version=5
 config/name="Monomachia"
 run/main_scene="res://scenes/levels/default_level/default_level.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
 
 [display]
 

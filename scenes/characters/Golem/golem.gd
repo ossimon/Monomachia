@@ -4,6 +4,9 @@ var bullet_scene: PackedScene = preload("res://scenes/Projectiles/Bullet/bullet.
 var shatter_scene: PackedScene = preload("res://scenes/Projectiles/Shatter/shatter.tscn")
 var wall_scene: PackedScene = preload("res://scenes/obstacles/Block/player_wall.tscn")
 
+# build distance
+var build_distance = 25
+
 # abilities
 var can_shoot: bool = true
 var can_ability: bool = true
@@ -12,7 +15,7 @@ var can_heal: bool = true
 
 func use_ability1():
 	shoot()
-
+	
 func use_ability2():
 	build_walls()
 
@@ -25,7 +28,6 @@ func use_ability4():
 func shoot():
 	if not can_shoot:
 		return
-	
 	var bullet_direction = $Scope.get_aim_vec()
 	var bullet_position = position + bullet_direction * 20
 
@@ -39,9 +41,9 @@ func build_walls():
 	if not can_build_wall:
 		return
 	var wall_direction = $Scope.get_aim_vec()
-	var wall_position = position + wall_direction * 15
+	var wall_position = position + wall_direction * build_distance
 	
-	get_parent().add_scene(wall_scene, wall_position, wall_direction.angle())
+	get_parent().build_wall(wall_position)
 	
 	can_build_wall = false
 	$WallTimer.start()
@@ -66,7 +68,6 @@ func use_shatter():
 
 	can_ability = false
 	$AbilityTimer.start()
-
 	$GolemSounds.play_attack()
 
 func _on_shooting_timer_timeout():
@@ -77,7 +78,6 @@ func _on_ability_timer_timeout():
 	
 func _on_wall_timer_timeout():
 	can_build_wall = true
+
 func _on_healing_timer_timeout():
 	can_heal = true
-
-
