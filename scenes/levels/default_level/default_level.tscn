@@ -21,7 +21,6 @@ texture = ExtResource("1_flnxa")
 
 [node name="Golem" parent="." instance=ExtResource("7_2jja5")]
 position = Vector2(-80, -6)
-player_instance = 1
 
 [node name="Golem2" parent="." instance=ExtResource("7_2jja5")]
 position = Vector2(49, 1)
