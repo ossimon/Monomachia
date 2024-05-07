@@ -51,14 +51,20 @@ func move():
 
 
 func hit(damage):
+	if health <= 0:
+		return
+
 	health -= damage
 	if health <= 0:
 		# player died
 		print("Player died")
-		$GolemSounds.play_death()
+		play_death_sound()
 	
 	$HealthBar.value -= damage
 	
+func play_death_sound():
+	pass
+
 func die():
 	queue_free()
 

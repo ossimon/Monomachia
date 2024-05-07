@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://6qujr0yi43ao"]
+
+[ext_resource type="PackedScene" uid="uid://cmn4o8m8j7yck" path="res://scenes/characters/Player/Player.tscn" id="1_k8ghb"]
+[ext_resource type="Texture2D" uid="uid://bjovrpqmcq4bk" path="res://scenes/characters/Player/Player.png" id="2_eb36k"]
+
+[node name="Paladin" instance=ExtResource("1_k8ghb")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="3"]
+texture = ExtResource("2_eb36k")

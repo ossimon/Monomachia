@@ -69,6 +69,9 @@ func use_shatter():
 	can_ability = false
 	$AbilityTimer.start()
 	$GolemSounds.play_attack()
+	
+func play_death_sound():
+	$GolemSounds.play_death()
 
 func _on_shooting_timer_timeout():
 	can_shoot = true
