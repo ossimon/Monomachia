@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://f72044f2qi6g" path="res://scenes/levels/default_level/Background.png" id="1_flnxa"]
 [ext_resource type="PackedScene" uid="uid://dilvk3kyo2hwx" path="res://scenes/obstacles/Borders/borders.tscn" id="3_r2q7q"]
 [ext_resource type="PackedScene" uid="uid://dna20g7txfcmv" path="res://scenes/obstacles/Labirynth/labirynth.tscn" id="5_ilgry"]
-[ext_resource type="PackedScene" uid="uid://6qujr0yi43ao" path="res://scenes/characters/Paladin/paladin.tscn" id="6_yf2af"]
+[ext_resource type="PackedScene" uid="uid://c7npg6tt01hmd" path="res://scenes/characters/Lich/lich.tscn" id="6_sjc0h"]
 [ext_resource type="PackedScene" uid="uid://b534ld2ku5dtd" path="res://scenes/characters/Golem/golem.tscn" id="7_2jja5"]
 
 [node name="Level" type="Sprite2D"]
@@ -20,11 +20,8 @@ texture = ExtResource("1_flnxa")
 
 [node name="Borders" parent="." instance=ExtResource("3_r2q7q")]
 
-[node name="Golem" parent="." instance=ExtResource("7_2jja5")]
-position = Vector2(-80, -6)
-
 [node name="Golem2" parent="." instance=ExtResource("7_2jja5")]
 position = Vector2(49, 1)
 player_instance = 2
 
-[node name="Paladin" parent="." instance=ExtResource("6_yf2af")]
+[node name="Lich" parent="." instance=ExtResource("6_sjc0h")]
