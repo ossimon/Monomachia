@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dl7p4jajuneuy"]
 
 [ext_resource type="Script" path="res://scenes/Projectiles/Shield/shield.gd" id="1_bnuu5"]
-[ext_resource type="Texture2D" uid="uid://d0bmnbu1t1b7g" path="res://sprites/abilities/Shield.png" id="1_qqgvd"]
+[ext_resource type="Texture2D" uid="uid://5jhmavs0w7ig" path="res://sprites/abilities/Shield_res.png" id="2_dvdy7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tl713"]
 radius = 13.0
@@ -13,7 +13,7 @@ script = ExtResource("1_bnuu5")
 modulate = Color(1, 1, 1, 0.219608)
 position = Vector2(0, -3)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_qqgvd")
+texture = ExtResource("2_dvdy7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
