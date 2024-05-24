@@ -2,7 +2,7 @@ extends Player
 
 var bullet_scene: PackedScene = preload("res://scenes/Projectiles/Bullet/bullet.tscn")
 var shatter_scene: PackedScene = preload("res://scenes/Projectiles/Shatter/shatter.tscn")
-var wall_scene: PackedScene = preload("res://scenes/obstacles/Block/player_wall.tscn")
+var fire_wall_scene: PackedScene = preload("res://scenes/obstacles/Block/fire_wall.tscn")
 var shield_scene: PackedScene = preload("res://scenes/Projectiles/Shield/shield.tscn")
 
 # build distance
@@ -41,9 +41,9 @@ func build_walls():
 	if not can_build_wall:
 		return
 	var wall_direction = $Scope.get_aim_vec()
-	var wall_position = position + wall_direction * build_distance
+	var wall_position = position
 	
-	get_parent().build_wall(wall_position)
+	owner.get_node("Labirynth").add_node_around_position(wall_position, "FireWall")
 	
 	can_build_wall = false
 	$WallTimer.start()

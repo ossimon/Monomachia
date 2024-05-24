@@ -9,6 +9,3 @@ func add_scene(scene_scene, pos, rot):
 	scene.position = pos
 	scene.rotation = rot
 	add_child(scene)
-	
-func build_wall(pos):
-	$Labirynth.add_node_at_position(pos)

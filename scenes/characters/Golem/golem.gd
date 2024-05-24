@@ -43,7 +43,7 @@ func build_walls():
 	var wall_direction = $Scope.get_aim_vec()
 	var wall_position = position + wall_direction * build_distance
 	
-	get_parent().build_wall(wall_position)
+	owner.get_node("Labirynth").add_node_at_position(wall_position, "PlayerWall")
 	
 	can_build_wall = false
 	$WallTimer.start()
