@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://6tlkw8mch3o4"]
+
+[ext_resource type="Script" path="res://scenes/Projectiles/Hammer/Hammer.gd" id="1_83m1e"]
+[ext_resource type="Texture2D" uid="uid://cv8hli1ambspy" path="res://sprites/abilities/Hammer.png" id="1_boa82"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yka3g"]
+radius = 14.0
+height = 80.0
+
+[node name="Hammer" type="Area2D"]
+script = ExtResource("1_83m1e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_boa82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_yka3g")
+
+[node name="SwingTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="SwingTimer" to="." method="_on_swing_timer_timeout"]

@@ -12,6 +12,5 @@ metadata/_edit_vertical_guides_ = [-200.0, 200.0]
 texture = ExtResource("2_t1vt5")
 
 [node name="WaveTimer" type="Timer" parent="."]
-wait_time = 0.1
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

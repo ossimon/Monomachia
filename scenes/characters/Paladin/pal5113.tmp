@@ -1,19 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://6qujr0yi43ao"]
+[gd_scene load_steps=5 format=3 uid="uid://6qujr0yi43ao"]
 
 [ext_resource type="PackedScene" uid="uid://cmn4o8m8j7yck" path="res://scenes/characters/Player/Player.tscn" id="1_k8ghb"]
 [ext_resource type="Texture2D" uid="uid://bjovrpqmcq4bk" path="res://scenes/characters/Player/Player.png" id="2_eb36k"]
 [ext_resource type="Script" path="res://scenes/characters/Paladin/paladin.gd" id="2_mx2e2"]
 [ext_resource type="PackedScene" uid="uid://dvlgtdh06mq5f" path="res://scenes/characters/GolemSounds/golem_sounds.tscn" id="4_ak7y1"]
-[ext_resource type="PackedScene" uid="uid://bc5ey4k22jguq" path="res://scenes/Projectiles/DivinePunishment/divine_punishment.tscn" id="5_oir1p"]
 
 [node name="Paladin" instance=ExtResource("1_k8ghb")]
 script = ExtResource("2_mx2e2")
+player_instance = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="3"]
 texture = ExtResource("2_eb36k")
 
 [node name="HammerTimer" type="Timer" parent="." index="4"]
-wait_time = 0.5
 
 [node name="ShieldTimer" type="Timer" parent="." index="5"]
 
@@ -23,7 +22,4 @@ wait_time = 0.5
 
 [node name="GolemSounds" parent="." index="8" instance=ExtResource("4_ak7y1")]
 
-[node name="DivinePunishment" parent="." index="9" instance=ExtResource("5_oir1p")]
-
 [connection signal="timeout" from="HammerTimer" to="." method="_on_hammer_timer_timeout"]
-[connection signal="timeout" from="DivinePunishmentTimer" to="." method="_on_divine_punishment_timer_timeout"]
