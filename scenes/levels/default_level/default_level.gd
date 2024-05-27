@@ -11,6 +11,3 @@ func add_scene(scene_scene, pos, rot, owner_id=-1):
 	if "owner_id" in scene:
 		scene.owner_id = owner_id
 	add_child(scene)
-
-func build_wall(pos):
-	$Labirynth.add_node_at_position(pos)

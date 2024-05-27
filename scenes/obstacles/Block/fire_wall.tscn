@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://nkjuw4xgjl27"]
+
+[ext_resource type="Script" path="res://scenes/obstacles/Block/fire_wall.gd" id="1_b7qle"]
+[ext_resource type="Texture2D" uid="uid://byxnt7ny5y42g" path="res://sprites/walls/lich_wall_res.png" id="1_hwl18"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74nvo"]
+
+[node name="FireWall" type="Area2D"]
+script = ExtResource("1_b7qle")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_74nvo")
+
+[node name="FireWall" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_hwl18")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

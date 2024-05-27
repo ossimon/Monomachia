@@ -2,7 +2,8 @@ extends Player
 
 var bullet_scene: PackedScene = preload("res://scenes/Projectiles/Bullet/bullet.tscn")
 var shatter_scene: PackedScene = preload("res://scenes/Projectiles/Shatter/shatter.tscn")
-var wall_scene: PackedScene = preload("res://scenes/obstacles/Block/player_wall.tscn")
+var fire_wall_scene: PackedScene = preload("res://scenes/obstacles/Block/fire_wall.tscn")
+var shield_scene: PackedScene = preload("res://scenes/Projectiles/Shield/shield.tscn")
 
 # build distance
 var build_distance = 25
@@ -11,7 +12,7 @@ var build_distance = 25
 var can_shoot: bool = true
 var can_ability: bool = true
 var can_build_wall: bool = true
-var can_heal: bool = true
+var can_shield: bool = true
 
 func use_ability1():
 	shoot()
@@ -20,7 +21,7 @@ func use_ability2():
 	build_walls()
 
 func use_ability3():
-	use_heal()
+	use_shield()
 
 func use_ability4():
 	use_shatter()
@@ -32,7 +33,6 @@ func shoot():
 	var bullet_position = position + bullet_direction * 20
 
 	get_parent().add_scene(bullet_scene, bullet_position, bullet_direction.angle())
-
 	can_shoot = false
 	$ShootingTimer.start()
 	$GolemSounds.play_shoot()
@@ -41,21 +41,23 @@ func build_walls():
 	if not can_build_wall:
 		return
 	var wall_direction = $Scope.get_aim_vec()
-	var wall_position = position + wall_direction * build_distance
+	var wall_position = position
 	
-	owner.get_node("Labirynth").add_node_at_position(wall_position, "PlayerWall")
+	owner.get_node("Labirynth").add_node_around_position(wall_position, "FireWall")
 	
 	can_build_wall = false
 	$WallTimer.start()
 	$GolemSounds.play_place()
 
-func use_heal():
-	if not can_heal:
+func use_shield():
+	if not can_shield:
 		return
-	health = max_health
-	$HealthBar.value = max_health
-	can_heal = false
-	$HealingTimer.start()
+	var shield = shield_scene.instantiate()
+	
+	self.add_child(shield)
+		
+	can_shield = false
+	$ShieldTimer.start()
 	$GolemSounds.play_heal()
 		
 func use_shatter():
@@ -69,9 +71,6 @@ func use_shatter():
 	can_ability = false
 	$AbilityTimer.start()
 	$GolemSounds.play_attack()
-	
-func play_death_sound():
-	$GolemSounds.play_death()
 
 func _on_shooting_timer_timeout():
 	can_shoot = true
@@ -83,4 +82,4 @@ func _on_wall_timer_timeout():
 	can_build_wall = true
 
 func _on_healing_timer_timeout():
-	can_heal = true
+	can_shield = true
