@@ -35,16 +35,18 @@ func move():
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed("p%d_move_right" % player_instance):
 		velocity.x += 1
+		if facing_direction == Vector2.LEFT:
+			$CharacterSprite.flip_h = false
 		facing_direction = Vector2.RIGHT
 	if Input.is_action_pressed("p%d_move_left" % player_instance):
 		velocity.x += -1
+		if facing_direction == Vector2.RIGHT:
+			$CharacterSprite.flip_h = true
 		facing_direction = Vector2.LEFT
 	if Input.is_action_pressed("p%d_move_down" % player_instance):
 		velocity.y += 1
-		facing_direction = Vector2.DOWN
 	if Input.is_action_pressed("p%d_move_up" % player_instance):
 		velocity.y += -1
-		facing_direction = Vector2.UP
 
 	velocity = velocity.normalized() * movement_speed
 	move_and_slide()

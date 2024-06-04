@@ -9,7 +9,7 @@
 [node name="Paladin" instance=ExtResource("1_k8ghb")]
 script = ExtResource("2_mx2e2")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="3"]
+[node name="CharacterSprite" type="Sprite2D" parent="." index="3"]
 texture = ExtResource("2_eb36k")
 
 [node name="HammerTimer" type="Timer" parent="." index="4"]
