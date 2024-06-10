@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://6qujr0yi43ao"]
 
 [ext_resource type="PackedScene" uid="uid://cmn4o8m8j7yck" path="res://scenes/characters/Player/Player.tscn" id="1_k8ghb"]
-[ext_resource type="Texture2D" uid="uid://bjovrpqmcq4bk" path="res://scenes/characters/Player/Player.png" id="2_eb36k"]
 [ext_resource type="Script" path="res://scenes/characters/Paladin/paladin.gd" id="2_mx2e2"]
+[ext_resource type="Texture2D" uid="uid://bnpq10gqqbyg1" path="res://sprites/characters/paladin/paladin_res.png" id="3_c22it"]
 [ext_resource type="PackedScene" uid="uid://dvlgtdh06mq5f" path="res://scenes/characters/GolemSounds/golem_sounds.tscn" id="4_ak7y1"]
 [ext_resource type="PackedScene" uid="uid://bc5ey4k22jguq" path="res://scenes/Projectiles/DivinePunishment/divine_punishment.tscn" id="5_oir1p"]
 
@@ -10,7 +10,8 @@
 script = ExtResource("2_mx2e2")
 
 [node name="CharacterSprite" type="Sprite2D" parent="." index="3"]
-texture = ExtResource("2_eb36k")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_c22it")
 
 [node name="HammerTimer" type="Timer" parent="." index="4"]
 wait_time = 0.5

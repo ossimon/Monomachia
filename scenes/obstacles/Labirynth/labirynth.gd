@@ -87,7 +87,7 @@ func remove_node_at_position(pos):
 		print("No need to remove")
 
 func is_node_at_position(x, y):
-	if (x > 0 && x <= GRID_WIDTH) && (y > 0 && y <= GRID_HEIGHT):
+	if (x >= 0 && x <= GRID_WIDTH) && (y >= 0 && y <= GRID_HEIGHT):
 		return grid[y][x]
 
 func is_out_of_bounds(pos):
