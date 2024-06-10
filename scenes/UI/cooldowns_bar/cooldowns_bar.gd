@@ -31,9 +31,9 @@ func _ready():
 	set_timers()
 
 func _process(_delta):
-	if timer1:
+	if timer1 and is_instance_valid(timer1):
 		$CooldownIcon1.update(timer1)
-	if timer2:
+	if timer2 and is_instance_valid(timer2):
 		$CooldownIcon2.update(timer2)
-	if timer3:
+	if timer3 and is_instance_valid(timer3):
 		$CooldownIcon3.update(timer3)
