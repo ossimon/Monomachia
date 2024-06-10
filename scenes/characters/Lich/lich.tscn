@@ -11,19 +11,28 @@ script = ExtResource("2_nym46")
 [node name="GolemSounds" parent="." index="3" instance=ExtResource("3_wm0fu")]
 
 [node name="WallTimer" type="Timer" parent="." index="4"]
+one_shot = true
 
 [node name="AbilityTimer" type="Timer" parent="." index="5"]
 wait_time = 0.5
+one_shot = true
 
 [node name="ShootingTimer" type="Timer" parent="." index="6"]
 wait_time = 0.2
+one_shot = true
 
 [node name="ShieldTimer" type="Timer" parent="." index="7"]
+one_shot = true
 
 [node name="CharacterSprite" type="Sprite2D" parent="." index="8"]
 position = Vector2(0, -3)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_shoex")
+
+[node name="CooldownsBar" parent="." index="9" node_paths=PackedStringArray("timer1", "timer2", "timer3")]
+timer1 = NodePath("../WallTimer")
+timer2 = NodePath("../AbilityTimer")
+timer3 = NodePath("../ShieldTimer")
 
 [connection signal="timeout" from="WallTimer" to="." method="_on_wall_timer_timeout"]
 [connection signal="timeout" from="AbilityTimer" to="." method="_on_ability_timer_timeout"]

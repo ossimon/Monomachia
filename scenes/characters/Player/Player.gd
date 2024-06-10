@@ -92,6 +92,9 @@ func use_abilities():
 	if Input.is_action_pressed("p%d_ability4" % player_instance):
 		use_ability4()
 
+func get_ability_cooldown_timers():
+	pass
+
 func _process(_delta):
 	scope()
 	move()

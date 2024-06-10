@@ -84,3 +84,6 @@ func _on_wall_timer_timeout():
 
 func _on_healing_timer_timeout():
 	can_heal = true
+
+func get_ability_cooldown_timers():
+	return [$AbilityTimer, $WallTimer, $HealingTimer]

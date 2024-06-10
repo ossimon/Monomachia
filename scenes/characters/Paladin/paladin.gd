@@ -64,3 +64,6 @@ func _on_hammer_timer_timeout():
 
 func _on_divine_punishment_timer_timeout():
 	can_divine_punishment = true
+
+func get_ability_cooldown_timers():
+	return [$ShieldTimer, $KnockbackTimer, $DivinePunishmentTimer]

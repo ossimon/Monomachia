@@ -14,12 +14,16 @@ texture = ExtResource("2_eb36k")
 
 [node name="HammerTimer" type="Timer" parent="." index="4"]
 wait_time = 0.5
+one_shot = true
 
 [node name="ShieldTimer" type="Timer" parent="." index="5"]
+one_shot = true
 
 [node name="KnockbackTimer" type="Timer" parent="." index="6"]
+one_shot = true
 
 [node name="DivinePunishmentTimer" type="Timer" parent="." index="7"]
+one_shot = true
 
 [node name="GolemSounds" parent="." index="8" instance=ExtResource("4_ak7y1")]
 
