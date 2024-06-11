@@ -34,3 +34,5 @@ player_instance = 1
 [node name="CooldownsBar2" parent="." instance=ExtResource("7_ue4yg")]
 position = Vector2(220, -40)
 player_instance = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

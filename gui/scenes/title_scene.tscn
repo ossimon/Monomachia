@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxxa8yjb0jyx1"]
+
+[ext_resource type="Texture2D" uid="uid://f72044f2qi6g" path="res://scenes/levels/default_level/Background.png" id="1_5xey5"]
+[ext_resource type="Texture2D" uid="uid://bn5q2mswl7k2c" path="res://gui/title_screen/start_button_res.png" id="1_47pew"]
+[ext_resource type="Script" path="res://gui/scenes/title_scene.gd" id="1_s1kgo"]
+[ext_resource type="Texture2D" uid="uid://dyqx5vttet1ll" path="res://gui/title_screen/start_button_pressed_res.png" id="2_fh7e2"]
+[ext_resource type="Texture2D" uid="uid://dggpqjsm65yiw" path="res://gui/title_screen/title_res.png" id="4_pf244"]
+
+[node name="TitleScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_s1kgo")
+metadata/_edit_horizontal_guides_ = [180.0]
+metadata/_edit_vertical_guides_ = [320.0]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_5xey5")
+metadata/_edit_use_anchors_ = true
+
+[node name="StartButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 260.0
+offset_top = 250.0
+offset_right = 560.0
+offset_bottom = 360.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("1_47pew")
+texture_pressed = ExtResource("2_fh7e2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="TextureRect" parent="CanvasLayer"]
+offset_left = 26.0
+offset_top = 37.0
+offset_right = 1006.0
+offset_bottom = 217.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_pf244")
+
+[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_texture_button_pressed"]
