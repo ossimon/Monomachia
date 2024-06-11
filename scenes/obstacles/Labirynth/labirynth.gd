@@ -13,11 +13,10 @@ const GRID_HEIGHT = 15
 var grid = []
 
 func _ready():
-	grid = generate_grid(GRID_WIDTH, GRID_HEIGHT)
+	generate_grid(GRID_WIDTH, GRID_HEIGHT)
 	#print_grid()
 
 func generate_grid(width, height):
-	var grid = []
 	for i in range(height):
 		grid.append([])
 		for j in range(width):
@@ -26,7 +25,6 @@ func generate_grid(width, height):
 				add_block_at_position(position_from_grid_index(j, i))
 			else:
 				grid[i].append(false)
-	return grid
 
 func print_grid():
 	for row in grid:

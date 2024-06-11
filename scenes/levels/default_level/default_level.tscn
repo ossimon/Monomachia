@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dy4r8h8hns1an"]
+[gd_scene load_steps=9 format=3 uid="uid://dy4r8h8hns1an"]
 
 [ext_resource type="Script" path="res://scenes/levels/default_level/default_level.gd" id="1_13etq"]
 [ext_resource type="Texture2D" uid="uid://f72044f2qi6g" path="res://scenes/levels/default_level/Background.png" id="1_flnxa"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c7npg6tt01hmd" path="res://scenes/characters/Lich/lich.tscn" id="6_sjc0h"]
 [ext_resource type="PackedScene" uid="uid://b534ld2ku5dtd" path="res://scenes/characters/Golem/golem.tscn" id="7_2jja5"]
 [ext_resource type="PackedScene" uid="uid://duc3hursa86r2" path="res://scenes/UI/cooldowns_bar/cooldowns_bar.tscn" id="7_ue4yg"]
+[ext_resource type="PackedScene" uid="uid://6qujr0yi43ao" path="res://scenes/characters/Paladin/paladin.tscn" id="8_ymhyt"]
 
 [node name="Level" type="Sprite2D"]
 position = Vector2(320, 180)
@@ -36,3 +37,6 @@ position = Vector2(220, -40)
 player_instance = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Paladin" parent="." instance=ExtResource("8_ymhyt")]
+position = Vector2(34, -54)

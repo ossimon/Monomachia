@@ -29,11 +29,6 @@ position = Vector2(0, -3)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_shoex")
 
-[node name="CooldownsBar" parent="." index="9" node_paths=PackedStringArray("timer1", "timer2", "timer3")]
-timer1 = NodePath("../WallTimer")
-timer2 = NodePath("../AbilityTimer")
-timer3 = NodePath("../ShieldTimer")
-
 [connection signal="timeout" from="WallTimer" to="." method="_on_wall_timer_timeout"]
 [connection signal="timeout" from="AbilityTimer" to="." method="_on_ability_timer_timeout"]
 [connection signal="timeout" from="ShootingTimer" to="." method="_on_shooting_timer_timeout"]

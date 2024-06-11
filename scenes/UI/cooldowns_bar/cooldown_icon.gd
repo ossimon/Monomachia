@@ -1,12 +1,10 @@
-extends Node2D
+extends TextureProgressBar
 
 func update(timer: Timer):
 	if timer.is_stopped():
-		$TextureProgressBar.value = 0
+		self.value = 0
 		$Label.text = ''
 		return
 	
-	$TextureProgressBar.value = timer.time_left * 100 / timer.wait_time
-	# show one decimal place
+	self.value = timer.time_left * 100 / timer.wait_time
 	$Label.text = str(timer.time_left).left(3)
-
