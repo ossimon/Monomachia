@@ -42,13 +42,13 @@ func position_from_grid_index(x, y):
 		y * WALL_SIZE.y - (150 - OFFSET)
 	)
 	
-func add_node_around_position(pos, wall_type):
-	add_node_at_position(pos + Vector2(0, 20), wall_type)
-	add_node_at_position(pos + Vector2(0, -20), wall_type)
-	add_node_at_position(pos + Vector2(-20, 0), wall_type)
-	add_node_at_position(pos + Vector2(20, 0), wall_type)
+func add_node_around_position(pos, wall_type, player_instance=-1):
+	add_node_at_position(pos + Vector2(0, 20), wall_type, player_instance)
+	add_node_at_position(pos + Vector2(0, -20), wall_type, player_instance)
+	add_node_at_position(pos + Vector2(-20, 0), wall_type, player_instance)
+	add_node_at_position(pos + Vector2(20, 0), wall_type, player_instance)
 	
-func add_node_at_position(pos, wall_type):
+func add_node_at_position(pos, wall_type, player_instance):
 	if is_out_of_bounds(pos):
 		print("Building out of bounds")
 		return
@@ -67,6 +67,7 @@ func add_node_at_position(pos, wall_type):
 			"FireWall":
 				node = FireWall.instantiate()
 				node.position = position_from_grid_index(x, y)
+				node.player_instance = player_instance
 				add_child(node)
 			_:
 				print("Not valid wall type")
