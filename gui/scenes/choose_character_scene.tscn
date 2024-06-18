@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=3 uid="uid://dfkosg2h0y6no"]
+
+[ext_resource type="Script" path="res://gui/scenes/choose_character_scene.gd" id="1_8ujx4"]
+[ext_resource type="Texture2D" uid="uid://f72044f2qi6g" path="res://scenes/levels/default_level/Background.png" id="2_bmmlx"]
+[ext_resource type="Texture2D" uid="uid://6u6y8vovskax" path="res://gui/choose_character/arrow_res.png" id="3_nae40"]
+[ext_resource type="Texture2D" uid="uid://bsf85boetxiqy" path="res://sprites/characters/golem/golem_res.png" id="4_yjesj"]
+[ext_resource type="Texture2D" uid="uid://bnpq10gqqbyg1" path="res://sprites/characters/paladin/paladin_res.png" id="5_0gw0i"]
+[ext_resource type="Texture2D" uid="uid://dk5dixhatkppx" path="res://gui/choose_character/player1_res.png" id="6_n4hlo"]
+[ext_resource type="Texture2D" uid="uid://bcu6af2s5qkch" path="res://gui/choose_character/player2_res.png" id="7_krkh2"]
+[ext_resource type="Texture2D" uid="uid://b0h3a76xbvwfq" path="res://gui/choose_character/confirm_button_res.png" id="8_15ap1"]
+[ext_resource type="Texture2D" uid="uid://g01l7wiuuih8" path="res://gui/choose_character/confirm_button_pressed_res.png" id="9_7fax5"]
+[ext_resource type="Texture2D" uid="uid://bn5q2mswl7k2c" path="res://gui/title_screen/start_button_res.png" id="9_mg4rt"]
+[ext_resource type="Texture2D" uid="uid://dyqx5vttet1ll" path="res://gui/title_screen/start_button_pressed_res.png" id="11_s85ls"]
+
+[node name="ChooseCharacterScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8ujx4")
+metadata/_edit_horizontal_guides_ = [180.0, 275.0]
+metadata/_edit_vertical_guides_ = [320.0]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_bmmlx")
+metadata/_edit_use_anchors_ = true
+
+[node name="PrevCharacter1" type="TextureButton" parent="CanvasLayer"]
+offset_left = 50.0
+offset_top = 160.0
+offset_right = 250.0
+offset_bottom = 360.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("3_nae40")
+metadata/_edit_use_anchors_ = true
+
+[node name="NextCharacter1" type="TextureButton" parent="CanvasLayer"]
+offset_left = 270.0
+offset_top = 200.0
+offset_right = 470.0
+offset_bottom = 400.0
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("3_nae40")
+metadata/_edit_use_anchors_ = true
+
+[node name="PrevCharacter2" type="TextureButton" parent="CanvasLayer"]
+offset_left = 371.0
+offset_top = 160.0
+offset_right = 571.0
+offset_bottom = 360.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("3_nae40")
+metadata/_edit_use_anchors_ = true
+
+[node name="NextCharacter2" type="TextureButton" parent="CanvasLayer"]
+offset_left = 604.0
+offset_top = 200.0
+offset_right = 804.0
+offset_bottom = 400.0
+rotation = 3.14159
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("3_nae40")
+metadata/_edit_use_anchors_ = true
+
+[node name="Player1" type="TextureRect" parent="CanvasLayer"]
+offset_left = 108.0
+offset_top = 120.0
+offset_right = 208.0
+offset_bottom = 240.0
+texture = ExtResource("4_yjesj")
+metadata/_edit_use_anchors_ = true
+
+[node name="Player2" type="TextureRect" parent="CanvasLayer"]
+offset_left = 439.0
+offset_top = 121.0
+offset_right = 539.0
+offset_bottom = 241.0
+texture = ExtResource("5_0gw0i")
+metadata/_edit_use_anchors_ = true
+
+[node name="Player1Text" type="TextureRect" parent="CanvasLayer"]
+offset_left = 66.0
+offset_top = 55.0
+offset_right = 456.0
+offset_bottom = 145.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_n4hlo")
+
+[node name="Player2Text" type="TextureRect" parent="CanvasLayer"]
+offset_left = 389.0
+offset_top = 57.0
+offset_right = 779.0
+offset_bottom = 147.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_krkh2")
+
+[node name="ConfirmButton1" type="TextureButton" parent="CanvasLayer"]
+offset_left = 104.0
+offset_top = 260.0
+offset_right = 484.0
+offset_bottom = 370.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("8_15ap1")
+texture_pressed = ExtResource("9_7fax5")
+
+[node name="ConfirmButton2" type="TextureButton" parent="CanvasLayer"]
+offset_left = 426.0
+offset_top = 261.0
+offset_right = 806.0
+offset_bottom = 371.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("8_15ap1")
+texture_pressed = ExtResource("9_7fax5")
+
+[node name="StartButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 260.0
+offset_top = 293.0
+offset_right = 560.0
+offset_bottom = 403.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("9_mg4rt")
+texture_pressed = ExtResource("11_s85ls")
+
+[connection signal="pressed" from="CanvasLayer/PrevCharacter1" to="." method="_on_prev_character_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/NextCharacter1" to="." method="_on_next_character_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/PrevCharacter2" to="." method="_on_prev_character_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/NextCharacter2" to="." method="_on_next_character_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/ConfirmButton1" to="." method="_on_confirm_button_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/ConfirmButton2" to="." method="_on_confirm_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]

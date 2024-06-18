@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsf85boetxiqy"
-path="res://.godot/imported/golem_idle_res.png-64d2cfc8db4b9d79ca62b58628b9eca2.ctex"
+uid="uid://xsqpjbrrugvn"
+path="res://.godot/imported/confirm_button.png-36ff893f04a703e274dc2cf00e480a7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/characters/golem/golem_idle_res.png"
-dest_files=["res://.godot/imported/golem_idle_res.png-64d2cfc8db4b9d79ca62b58628b9eca2.ctex"]
+source_file="res://gui/choose_character/confirm_button.png"
+dest_files=["res://.godot/imported/confirm_button.png-36ff893f04a703e274dc2cf00e480a7f.ctex"]
 
 [params]
 

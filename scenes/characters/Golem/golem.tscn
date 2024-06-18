@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cmn4o8m8j7yck" path="res://scenes/characters/Player/Player.tscn" id="1_b28pv"]
 [ext_resource type="Script" path="res://scenes/characters/Golem/golem.gd" id="2_p2lau"]
 [ext_resource type="PackedScene" uid="uid://dvlgtdh06mq5f" path="res://scenes/characters/GolemSounds/golem_sounds.tscn" id="3_jbrk6"]
-[ext_resource type="Texture2D" uid="uid://bsf85boetxiqy" path="res://sprites/characters/golem/golem_idle_res.png" id="4_enq7d"]
+[ext_resource type="Texture2D" uid="uid://bsf85boetxiqy" path="res://sprites/characters/golem/golem_res.png" id="4_enq7d"]
 
 [node name="Golem" instance=ExtResource("1_b28pv")]
 script = ExtResource("2_p2lau")

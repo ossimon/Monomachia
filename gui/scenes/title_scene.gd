@@ -2,4 +2,4 @@ extends Control
 
 
 func _on_texture_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/levels/default_level/default_level.tscn")
+	SceneSwitcher.switch_scene("res://gui/scenes/choose_character_scene.tscn")
