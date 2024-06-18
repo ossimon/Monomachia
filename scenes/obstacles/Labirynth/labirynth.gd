@@ -58,11 +58,13 @@ func add_node_at_position(pos, wall_type, player_instance):
 	var y = grid_index[1]
 	
 	if !is_node_at_position(x, y):
-		var node;
+		var node
 		match wall_type:
 			"PlayerWall":
 				node = PlayerWall.instantiate()
 				node.connect("is_shattered", _on_player_wall_is_shattered)
+				node.position = position_from_grid_index(x, y)
+				add_child(node)
 				grid[y][x] = true
 			"FireWall":
 				node = FireWall.instantiate()
