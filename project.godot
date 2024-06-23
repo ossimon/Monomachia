@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="Monomachia"
+config/version="1.0"
 run/main_scene="res://gui/scenes/title_scene.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
+boot_splash/bg_color=Color(0.333333, 0.152941, 0.32549, 1)
+boot_splash/image="res://gui/logo/logo_res.png"
+config/icon="res://gui/logo/logo_res.png"
 
 [autoload]
 
