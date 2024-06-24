@@ -1,7 +1,7 @@
 # Monomachia
 The world is not big enough for two of you. </br>
 Fight against each other on the dynamic battlefield. </br>
-Strength, magic, dexterity - which path will you choose to dominate and destroy your opponent.
+Strength, magic, dexterity - which path will you choose to dominate and destroy your opponent?
 ## How to play
 - Choose your characters,
 - To move your character use `WASD` keys for player 1 and gamepad / joystick for player 2,
